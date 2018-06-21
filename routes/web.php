@@ -52,3 +52,5 @@ if ($input2 == 1)
 }); */
 
 Route::get('/homeIndex', 'homecontroller@homeindex');
+
+Route::get('/homepage', 'homepagecontroller@homepage');
