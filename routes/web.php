@@ -35,7 +35,7 @@ Route::get('/resultado/{numero}', function ($input) {
 
 });
 
-
+/*
 Route::get('holis/{numero}/{numeropcional?}', function($input1, $input2 = 1){
 
 if ($input2 == 1)
@@ -49,6 +49,6 @@ if ($input2 == 1)
   else {  $resultado= $input1*$input2;
           return "El numero ingresado  es $input1 y es $input2, resultando $resultado";
   }
-});
+}); */
 
-/*Route::get('Bienvenido','InicioController@index');*/
+Route::get('/homeIndex', 'homecontroller@homeindex');
