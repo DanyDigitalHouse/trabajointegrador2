@@ -12,10 +12,43 @@
 | Esto es una funcion anonimas
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/', function () {
-    echo 'Saludar';
+    echo 'Cualquier cosa';
+    echo '<br><br>';
+    echo 'Hola estoy escribiendo dentro de ejemplo de laravel';
 });
+
+
+Route::get('/miPrimerRuta', function () {
+    echo 'Creé mi primer ruta en Laravel';
+});
+
+Route::get('/resultado/{numero}', function ($input) {
+
+    if ($input%2==0){
+        return "El numero ingresado  $input  es par";
+    }else{
+        return "El numero ingresado  $input  es impar";
+    }
+
+});
+
+
+Route::get('holis/{numero}/{numeropcional?}', function($input1, $input2 = 1){
+
+if ($input2 == 1)
+{
+  if ($input1%2==0){
+      return "El numero ingresado  $input1  es par";
+  }else{
+      return "El numero ingresado  $input1  es impar";
+  }
+}
+  else {  $resultado= $input1*$input2;
+          return "El numero ingresado  es $input1 y es $input2, resultando $resultado";
+  }
+});
+
+/*Route::get('Bienvenido','InicioController@index');*/
