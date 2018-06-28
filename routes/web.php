@@ -56,3 +56,7 @@ Route::get('/homeIndex', 'homecontroller@homeindex');
 Route::get('/homepage', 'homepagecontroller@homepage');
 
 Route::get('/primeratabla', 'dbusercontroller@listar');
+
+Route::get('/publicaciones', 'addpublication@pub');
+
+Route::post('/publicaciones', 'addpublication@save');
