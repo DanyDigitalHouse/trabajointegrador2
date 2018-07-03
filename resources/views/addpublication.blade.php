@@ -7,7 +7,7 @@
 
 </head>
 <body>
-   <form method='POST' action="/publicaciones">
+   <form method='POST' action="/publicaciones" enctype="multipart/form-data">
    {{ csrf_field() }}
       <fieldset >
 			<legend>Guardar datos por databing</legend>
@@ -30,6 +30,15 @@
     	<div class='form-control'>
 				<button type="submit">GUARDAR EN BASE DE DATOS</button>
 			</div>
+
+
+      <div class='form-control'>
+        <label>Poster</label>
+				<input type="file" name="poster"></input>
+			</div>
+
+
+
 
       </fieldset>
    </form>
