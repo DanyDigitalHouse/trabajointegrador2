@@ -60,3 +60,7 @@ Route::get('/primeratabla', 'dbusercontroller@listar');
 Route::get('/publicaciones', 'addpublication@pub');
 
 Route::post('/publicaciones', 'addpublication@save');
+
+Route::get('/paginar', 'pagecontroller@pag');
+
+Route::post('/paginar', 'pagecontoller@pagsave');

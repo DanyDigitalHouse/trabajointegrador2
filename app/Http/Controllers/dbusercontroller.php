@@ -11,7 +11,7 @@ class dbusercontroller extends Controller
     $users = User::all();
     //dd($peliculas);
     $view = view('dbuser');
-    $view->with('mensaje', 'estas son las pelicuias')
+    $view->with('mensaje', 'estos son los usuarios')
          ->with('users',$users);
 
     return $view;
