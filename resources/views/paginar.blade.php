@@ -2,7 +2,7 @@
 
 <ul>
   @foreach ($users as $row)
-    <li>{{$row->nameuser}}</li>
+    <li>{{$row->nickname}}</li>
   @endforeach
 </ul>
 

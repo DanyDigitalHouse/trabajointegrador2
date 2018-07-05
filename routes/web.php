@@ -64,3 +64,5 @@ Route::post('/publicaciones', 'addpublication@save');
 Route::get('/paginar', 'pagecontroller@pag');
 
 Route::post('/paginar', 'pagecontoller@pagsave');
+
+Route::get('/migrar', 'migrarcontoller@pagmig');
