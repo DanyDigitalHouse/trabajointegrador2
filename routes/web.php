@@ -66,3 +66,7 @@ Route::get('/paginar', 'pagecontroller@pag');
 Route::post('/paginar', 'pagecontoller@pagsave');
 
 Route::get('/migrar', 'migrarcontoller@pagmig');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
