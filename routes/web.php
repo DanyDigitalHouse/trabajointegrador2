@@ -51,6 +51,12 @@ if ($input2 == 1)
   }
 }); */
 
+
+//Route::prefix('publicaciones')->group(function() {
+
+
+//});
+
 Route::get('/homeIndex', 'homecontroller@homeindex');
 
 Route::get('/homepage', 'homepagecontroller@homepage');
@@ -70,3 +76,7 @@ Route::get('/migrar', 'migrarcontoller@pagmig');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('login/google', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');

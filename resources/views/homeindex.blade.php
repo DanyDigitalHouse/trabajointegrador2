@@ -35,7 +35,7 @@
                   <a id="entra" href="Login.php"><p>ENTRAR</p></a>
                 </div>
                 <div class="registrate">
-                  <a id="registrate" href="registro.php"><p>REGISTRATE AHORA!</p></a>
+                  <a id="registrate" href="register"><p>REGISTRATE AHORA!</p></a>
                 </div>
               </div>
 

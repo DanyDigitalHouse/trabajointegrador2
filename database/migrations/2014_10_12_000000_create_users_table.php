@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
           $table->integer('tipoDeUsuario')->nullable()  ;
           $table->string('avatar');
           $table->timestamps();
+          $table->string('remember_token', 100)->nullable();
         });
     }
 
