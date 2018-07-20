@@ -21,7 +21,8 @@ class CreatePosteosTable extends Migration
           $table->string('local');    // donde esta el usuario tomando
           $table->string('titulopost')->nullable()  ;
           $table->string('mensajeposteado')->nullable()  ;
-          $table->string('amigos');
+          $table->string('fotopost')->nullable()  ;
+          $table->string('amigos')->nullable()  ;;
           $table->timestamps();
 
         });

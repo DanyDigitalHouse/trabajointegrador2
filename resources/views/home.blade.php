@@ -19,14 +19,16 @@
     </div>
 </div>
 <p>¡Comenta a la comunidad!</p>
-<form class="form" action="/post" method="POST" enctype="multipart/form-data">
-  <input type="text" name="name" autofocus placeholder="nickname" value=""> <span class="errorstyle"> </span>
+<form class="form" action="/posteo" method="POST" enctype="multipart/form-data">
+  {{csrf_field() }}
+<div>
+  <input type="text" name="nickname" autofocus placeholder="Nickname" value=""> <span class="errorstyle"> </span>
   <input type="text" name="local"  placeholder="Cerveceria" value=""> <span class="errorstyle"> </span>
   <input type="text" name="titulopost"  placeholder="Titulo" value=""> <span class="errorstyle"></span>
   <input type="text" name="mensajeposteado"  placeholder="Comentarios" value=""> <span class="errorstyle"></span>
   <label> <p>Fotos del post</p> <input id="regAvatar" type="file" name="fotopost'" value=""></label>
-
   <input id="registro" type="submit" name="" value="SUBE TU POSTEO!">
-
+    <?php var_dump($errors) ?>
+</div>
 </form>
 @endsection
