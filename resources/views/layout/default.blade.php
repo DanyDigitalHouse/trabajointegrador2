@@ -1,20 +1,3 @@
-<?php
-
-
-
-session_start();
-require_once('funciones.php');
-
-if (!estaLogueado()) {
-    header('location:login.php');
-    exit;
-}
-/*echo '<br><br><br><br><br><br><br>';
-
-var_dump($_SESSION);
-
-*/
- ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -25,10 +8,7 @@ var_dump($_SESSION);
   </head>
 
   <body>
-<?php include('header.php') ?>
     @yield('contenido');
-
     </div>
-
   </body>
 </html>
