@@ -82,3 +82,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/posteo','postcontroller@savepost');
 
 Route::get('/profile', 'profilecontroller@prof');
+
+//Route::get('/perfil', 'homecontroller@perfil')->middleware('auth')
