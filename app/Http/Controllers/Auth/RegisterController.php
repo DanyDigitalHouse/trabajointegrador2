@@ -51,7 +51,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6',
-          //  'avatar' => ''
+            'avatar' => 'nullable'
         ]);
     }
 
@@ -63,8 +63,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-      $ruta_imagen='';
-
+      $name='';
+        if ($data['avatar']) {
+          $file = $data['avatar'];
+          $name = time().$file->getClientOriginalName();
+          $file->move(public_path().'/images', $name);
+        }
       // if(){
       //   $ruta_imagen =
       // }
@@ -72,7 +76,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'avatar' => $ruta_imagen
+            'avatar' => $name
         ]);
+
     }
 }

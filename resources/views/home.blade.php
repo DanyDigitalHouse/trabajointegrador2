@@ -1,36 +1,4 @@
-@extends('layouts.app')
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<p>¡Comenta a la comunidad!</p>
-<form class="form" action="/posteo" method="POST" enctype="multipart/form-data">
-  {{csrf_field() }}
-<div>
-  <input type="text" name="nickname" autofocus placeholder="Nickname" value=""> <span class="errorstyle"> </span>
-  <input type="text" name="local"  placeholder="Cerveceria" value=""> <span class="errorstyle"> </span>
-  <input type="text" name="titulopost"  placeholder="Titulo" value=""> <span class="errorstyle"></span>
-  <input type="text" name="mensajeposteado"  placeholder="Comentarios" value=""> <span class="errorstyle"></span>
-  <label> <p>Fotos del post</p> <input id="regAvatar" type="file" name="fotopost'" value=""></label>
-  <input id="registro" type="submit" name="" value="SUBE TU POSTEO!">
-    <?php var_dump($errors) ?>
-</div>
-</form>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,11 +9,13 @@
   <title>Resi Bootstrap Template</title>
 
   <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/responsive-slider.css" rel="stylesheet">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/stylehome.css" rel="stylesheet">
   <!-- =======================================================
     Theme Name: Resi
     Theme URL: https://bootstrapmade.com/resi-free-bootstrap-html-template/
@@ -55,349 +25,117 @@
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <div class="row">
-        <nav class="navbar navbar-default" role="navigation">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <div class="navbar-brand">
-                <a href="index.html"><h1>Resi</h1></a>
-              </div>
-            </div>
-            <div class="menu">
-              <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="index.html">Home</a></li>
-                <li role="presentation"><a href="feature.html">Feature</a></li>
-                <li role="presentation"><a href="blog.html">Blog</a></li>
-                <li role="presentation"><a href="portfolio.html">Portfolio</a></li>
-                <li role="presentation"><a href="contact.html">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+
+
+  <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light" style="background-color:#f7f1e3;">
+    <a class="navbar-brand" href="#">Beers</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+        <div class="navbar-nav">
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+            {{ csrf_field() }}
+            <button type="submit" name="button"></button>
+        </form>
+          <a class="nav-item nav-link" href="#"><i class="fas fa-envelope"></i></a>
+          <a class="nav-item nav-link" href="#"><i class="fas fa-bell"></i></a>
+          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="#">Moments</a>
+
+        </div>
       </div>
+      <span class="navbar-text">
+        {{ Auth::user()->name }}
+      </span>
+      <form class="form-inline navbar-right">
+        <button class="btn btn-outline-success" type="button">New Post</button>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </div>
-  </header>
-
-  <div class="slider">
-    <div id="about-slider">
-      <div id="carousel-slider" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators visible-xs">
-          <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-slider" data-slide-to="1"></li>
-          <li data-target="#carousel-slider" data-slide-to="2"></li>
-        </ol>
-
-        <div class="carousel-inner">
-          <div class="item active">
-            <img src="img/slide1.jpg" class="img-responsive" alt="">
-            <div class="carousel-caption">
-              <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
-                <h2><span>Clean & Modern Design Template</span></h2>
-              </div>
-              <div class="col-md-10 col-md-offset-1">
-                <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
-                </div>
-              </div>
-              <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">
-                <form class="form-inline">
-                  <div class="form-group">
-                    <button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required">Live Demo</button>
-                  </div>
-                  <div class="form-group">
-                    <button type="getnow" name="Get Now" class="btn btn-primary btn-lg" required="required">Get Now</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <img src="img/slide2.jpg" class="img-responsive" alt="">
-            <div class="carousel-caption">
-              <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.0s">
-                <h2>Fully Responsive</h2>
-              </div>
-              <div class="col-md-10 col-md-offset-1">
-                <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
-                </div>
-              </div>
-              <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.6s">
-                <form class="form-inline">
-                  <div class="form-group">
-                    <button type="livedemo" name="purchase" class="btn btn-primary btn-lg" required="required">Live Demo</button>
-                  </div>
-                  <div class="form-group">
-                    <button type="getnow" name="subscribe" class="btn btn-primary btn-lg" required="required">Get Now</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
-					<i class="fa fa-angle-left"></i>
-				</a>
-
-        <a class=" right carousel-control hidden-xs" href="#carousel-slider" data-slide="next">
-					<i class="fa fa-angle-right"></i>
-				</a>
-      </div>
-      <!--/#carousel-slider-->
-    </div>
-    <!--/#about-slider-->
-  </div>
-  <!--/#slider-->
-
-
-
-  <div class="content">
-    <h2><span>Nam libero tempore cum solutanobis est eligendi optio cumque</span></h2>
-    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui soluta nobis est
-      eligendi optio cumque nihil impedit quo minus id </p>
-  </div>
-  <div class="breadcrumb">
-    <h4>Recent Works</h4>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="boxs">
-        <div class="col-md-4">
-          <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.8s">
-            <div class="align-center">
-              <h4>Quick Support</h4>
-              <div class="icon">
-                <i class="fa fa-heart-o fa-3x"></i>
-              </div>
-              <p>
-                Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
-              </p>
-              <div class="ficon">
-                <a href="" alt="">Learn more</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.3s">
-            <div class="align-center">
-              <h4>Web Design</h4>
-              <div class="icon">
-                <i class="fa fa-desktop fa-3x"></i>
-              </div>
-              <p>
-                Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
-              </p>
-              <div class="ficon">
-                <a href="" alt="">Learn more</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.3s">
-            <div class="align-center">
-              <h4>Easy Customize</h4>
-              <div class="icon">
-                <i class="fa fa-location-arrow fa-3x"></i>
-              </div>
-              <p>
-                Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
-              </p>
-              <div class="ficon">
-                <a href="" alt="">Learn more</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
+  </nav>
+<div class="container-fluid " style="margin-top:15vh;">
+  <div class="col-md-3">
+    <div class="card w-100" style="width: 18rem;">
+      <img class="card-img-top" src="images/{{ Auth::user()->avatar}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ Auth::user()->name }}</h5>
+          <p class="card-text">Bio User</p>
+          <a href="#" class="btn btn-primary">Mi Perfil</a>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="bg">
-        <div class="col-md-4">
-          <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.8s">
-            <div class="align-center">
-              <h4>Quick Support</h4>
-              <div class="icon">
-                <i class="fa fa-heart-o fa-3x"></i>
-              </div>
-              <p>
-                Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
-              </p>
-              <div class="ficon">
-                <a href="" alt="">Learn more</a>
-              </div>
-            </div>
-          </div>
+  <div class="col-md-6">
+    <h1 class="text-center">¡Comenta a la comunidad!</h1>
+    <form class="form" action="/posteo" method="POST" enctype="multipart/form-data">
+      {{csrf_field() }}
+    <div class="col-md-12">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <input type="text" name="nickname" readonly class="form-control" id="inputnickname" value="{{ Auth::user()->name }}">
         </div>
-        <div class="col-md-4">
-          <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.3s">
-            <div class="align-center">
-              <h4>Hight Quality</h4>
-              <div class="icon">
-                <i class="fa fa-laptop fa-3x"></i>
-              </div>
-              <p>
-                Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
-              </p>
-              <div class="ficon">
-                <a href="" alt="">Learn more</a>
-              </div>
-            </div>
-          </div>
+        <div class="form-group col-md-4">
+          <input type="text" name="local" class="form-control" id="inputlocal" placeholder="Cerveceria">
         </div>
-        <div class="col-md-4">
-          <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.3s">
-            <div class="align-center">
-              <h4>Easy Customize</h4>
-              <div class="icon">
-                <i class="fa fa-cloud fa-3x"></i>
-              </div>
-              <p>
-                Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
-              </p>
-              <div class="ficon">
-                <a href="" alt="">Learn more</a>
-              </div>
-            </div>
+        <div class="form-group col-md-4">
+          <input type="text" name="titulopost" class="form-control" id="inputitulo" placeholder="Titulo">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Comentarios</label>
+        <textarea class="form-control" name="mensajeposteado" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <label> <p>Fotos del post</p> <input id="regAvatar" type="file" name="fotopost" value=""></label>
+      <div class="row justify-content-center">
+        <button type="submit" class="btn btn-primary mb-2">SUBE TU POSTEO!</button>
+      </div>
+    </div>
+
+    </form>
+
+        <div class="col-md-12">
+
+      @foreach ($posteos as $row)
+      <div class="card w-100 mt-5" style="width: 18rem; box-shadow: 1px 1px 10px 1px rgba(138,138,138,1);">
+            <div class="card-body ">
+            <img class="card-img-top" src="images/{{$row->fotopost}}" alt="Card image cap">
+            <h5 class="card-title">{{$row->titulopost}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{$row->nickname}}</h6>
+            <p class="card-text">{{$row->mensajeposteado}}</p>
+            <a href="#" class="card-link">Like</a>
+            <a href="#" class="card-link">Compartir</a>
+            <p class="card-text"><small class="text-muted">{{$row->created_at}}</small></p>
+
           </div>
+      </div>
+
+      @endforeach
         </div>
 
+
+
+  </div>
+  <div class="col-md-3">
+    <div class="card w-100" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Hace nuevos amigos</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Users registrados en Beers</h6>
+        <p class="card-text">
+          <ul class="list-group">
+            @foreach($usuario as $us)
+            <li class="list-group-item">{{$us->name}}</li>
+            @endforeach
+          </ul>
+        </p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
       </div>
     </div>
   </div>
-
-  <div class="breadcrumb">
-    <h4>About Us</h4>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="">
-        <div class="col-md-7">
-          <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.8s">
-            <img src="img/2.png" alt="" class="img-responsive">
-          </div>
-        </div>
-        <div class="col-md-5">
-          <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.3s">
-            <div class="list-group">
-              <a href="#" class="list-group-item active">
-                <h4 class="list-group-item-heading">List group item heading</h4>
-                <p class="list-group-item-text">praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-                </p>
-              </a>
-              <div class="list-group-item">
-                <h4 class="list-group-item-heading">Modern interface</h4>
-                <p class="list-group-item-text">praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-                </p>
-              </div>
-              <div class="list-group-item">
-                <h4 class="list-group-item-heading">Modern design</h4>
-                <p class="list-group-item-text">praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-                </p>
-              </div>
-              <div class="list-group-item">
-                <h4 class="list-group-item-heading">Easy customize</h4>
-                <p class="list-group-item-text">praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="">
-        <div class="col-md-4">
-          <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.8s">
-            <div class="list-group">
-              <a href="#" class="list-group-item active">
-                <h4 class="list-group-item-heading">List group item heading</h4>
-                <p class="list-group-item-text">praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-                </p>
-              </a>
-              <div class="list-group-item">
-                <h4 class="list-group-item-heading">Modern interface</h4>
-                <p class="list-group-item-text">praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-                </p>
-              </div>
-              <div class="list-group-item">
-                <h4 class="list-group-item-heading">Easy customize</h4>
-                <p class="list-group-item-text">praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-                </p>
-              </div>
-              <div class="list-group-item">
-                <h4 class="list-group-item-heading">Modern design</h4>
-                <p class="list-group-item-text">praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-8">
-          <div class="image">
-            <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.3s">
-              <img src="img/5.jpg" alt="" class="img-responsive">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <hr>
-
-  <!--start footer-->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="widget">
-            <h5 class="widgetheading">Nam libero tempore</h5>
-            <p>soluta nobis est eligendi optio cumque nihil impedit quo minus id excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
-
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="widget">
-            <h5 class="widgetheading">Pages</h5>
-            <ul class="link-list">
-              <li><a href="#">Press release</a></li>
-              <li><a href="#">Terms and conditions</a></li>
-              <li><a href="#">Privacy policy</a></li>
-              <li><a href="#">Career center</a></li>
-              <li><a href="#">Contact us</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="widget">
-            <h5 class="widgetheading">Latest posts</h5>
-            <ul class="link-list">
-              <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-              <li><a href="#">Pellentesque et pulvinar enim</a></li>
-              <li><a href="#">Natus error sit voluptatem </a></li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </div>
+</div>
 
     <div class="sub-footer">
       <div class="container">
@@ -430,8 +168,6 @@
       </div>
     </div>
   </footer>
-  <!--end footer-->
-
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="js/jquery-2.1.1.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -445,5 +181,3 @@
 </body>
 
 </html>
-
-@endsection

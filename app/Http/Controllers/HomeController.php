@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Posteo;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+      $posts = posteo::all();
+      $usuarios = user::all();
+      //dd($peliculas);
+      $view = view('home');
+      $view->with('posteos',$posts)
+            ->with('usuario',$usuarios);
+
+      return $view;
+
     }
 }
