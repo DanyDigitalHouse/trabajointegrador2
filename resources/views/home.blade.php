@@ -77,7 +77,26 @@
           <input type="text" name="nickname" readonly class="form-control" id="inputnickname" value="{{ Auth::user()->name }}">
         </div>
         <div class="form-group col-md-4">
-          <input type="text" name="local" class="form-control" id="inputlocal" placeholder="Cerveceria">
+          {{-- <select type="text" name="local" class="form-control" id="inputlocal" placeholder="Cerveceria">
+            <option value="Antares">Antares</option>
+            <option value="Prinston">Prinston</option>
+            <option value="Cervelar">Cervelar</option>
+            <option value="Pentos">Pentos</option>
+            <option value="BarbaRoja">BarbaRoja</option>
+            <option value="LaChopperia">LaChopperia</option>
+          </select> --}}
+
+            <select  name="local" class="custom-select" id="inputlocal" style="height:3.4rem;">
+              <option selected> Cerveceria  </option>
+              <option value="Antares">Antares</option>
+              <option value="Prinston">Prinston</option>
+              <option value="Cervelar">Cervelar</option>
+              <option value="Pentos">Pentos</option>
+              <option value="BarbaRoja">BarbaRoja</option>
+              <option value="LaChopperia">LaChopperia</option>
+            </select>
+
+          {{-- <input type="text" name="local" class="form-control" id="inputlocal" placeholder="Cerveceria"> --}}
         </div>
         <div class="form-group col-md-4">
           <input type="text" name="titulopost" class="form-control" id="inputitulo" placeholder="Titulo">
