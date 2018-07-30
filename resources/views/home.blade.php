@@ -101,7 +101,9 @@
       @foreach ($posteos as $row)
       <div class="card w-100 mt-5" style="width: 18rem; box-shadow: 1px 1px 10px 1px rgba(138,138,138,1);">
             <div class="card-body ">
+          @if($row->fotopost)
             <img class="card-img-top" src="images/{{$row->fotopost}}" alt="Card image cap">
+          @endif
             <h5 class="card-title">{{$row->titulopost}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{$row->nickname}}</h6>
             <p class="card-text">{{$row->mensajeposteado}}</p>

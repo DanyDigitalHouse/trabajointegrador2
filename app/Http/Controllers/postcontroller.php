@@ -16,11 +16,11 @@ class postcontroller extends Controller
         'local' => 'required|string|max:50',
         'titulopost' => 'required|string|max:255',
         'mensajeposteado' => 'required|string|max:190',
-        'fotopost' => 'nullable'
+        'fotopost' => 'image'
       ]);
 
 
-
+      $name='';
       if ($request['fotopost']) {
         $file = $request['fotopost'];
         $name = time().$file->getClientOriginalName();
