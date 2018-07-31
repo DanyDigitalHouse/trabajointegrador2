@@ -1,0 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Vibur);
+
+.beerstittle {
+  color: #ccc;
+  text-align: center;
+  font-family: 'Vibur', cursive;
+  font-size: 40px;
+}
+
+.modal-backdrop {
+  z-index: -1;
+}
