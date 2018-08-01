@@ -9,7 +9,7 @@
     <title></title>
   </head>
   <body><nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light" style="background-color:#303952;">
-    <a class="navbar-brand beerstittle text-white" href="#">Beers</a>
+    <a class="navbar-brand beerstittle text-white" href="/home">Beers</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -35,7 +35,7 @@
           </li>
           <a class="nav-item nav-link text-white" href="#"><i class="fas fa-envelope"></i></a>
           <a class="nav-item nav-link text-white" href="#"><i class="fas fa-bell"></i></a>
-          <a class="nav-item nav-link active text-white" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link active text-white" href="/home">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link text-white" href="#">Moments</a>
 
         </div>

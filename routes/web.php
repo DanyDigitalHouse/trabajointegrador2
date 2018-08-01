@@ -81,6 +81,6 @@ Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/posteo','postcontroller@savepost');
 
-Route::get('/profile', 'profilecontroller@prof');
+Route::get('/profile', 'profilecontroller@prof')->middleware('auth');
 
 //Route::get('/perfil', 'homecontroller@perfil')->middleware('auth')

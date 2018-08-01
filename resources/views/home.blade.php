@@ -83,7 +83,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ Auth::user()->name }}</h5>
           <p class="card-text">Bio User</p>
-          <a href="#" class="btn btn-primary">Mi Perfil</a>
+          <a href="/profile" class="btn btn-primary">Mi Perfil</a>
       </div>
     </div>
   </div>
