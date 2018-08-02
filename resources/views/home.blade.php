@@ -129,7 +129,7 @@
       </div>
       <label> <p>Fotos del post</p> <input id="regAvatar" type="file" name="fotopost" value=""></label>
       <div class="row justify-content-center">
-        <button type="submit" class="btn btn-primary mb-2">SUBE TU POSTEO!</button>
+        <button href="/profile" type="submit" class="btn btn-primary mb-2">SUBE TU POSTEO!</button>
       </div>
     </div>
 

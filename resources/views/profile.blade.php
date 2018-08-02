@@ -6,6 +6,14 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href="css/stylenewprof.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/responsive-slider.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <link href="css/stylehome.css" rel="stylesheet">
     <title></title>
   </head>
   <body><nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light" style="background-color:#303952;">
@@ -25,7 +33,7 @@
                       <a href="{{ route('logout') }}"
                           onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
-                          Logout
+                       Logout
                       </a>
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                           {{ csrf_field() }}
@@ -57,7 +65,7 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="page-caption">
-                        <h1 class="page-title">Han Solo</h1>
+                        <h1 class="page-title">{{ Auth::user()->name }}</h1>
                     </div>
                 </div>
             </div>
@@ -76,7 +84,7 @@
             <div class="card kl-card kl-xl kl-shine kl-show">
                 <div class="kl-card-block kl-xl bg-primary kl-shadow-b kl-overlay kl-slide-in kl-show">
                     <div class="kl-background">
-                        <img src="https://starwarsblog.starwars.com/wp-content/uploads/2015/01/E4D_IA_5306-1536x864-340347928972.jpg">
+                        <img src="images/{{ Auth::user()->avatar}}">
                     </div>
 
                     <div class="kl-card-overlay kl-card-overlay-split-q kl-dark kl-inverse">
@@ -87,21 +95,16 @@
                         <div class="kl-card-overlay-item">
                             <div class="kl-figure-block">
                                 <span class="kl-figure kl-txt-shadow">26k</span>
-                                <span class="kl-title">Followers</span>
+                                <span class="kl-title">Seguidores</span>
                             </div>
                         </div>
                         <div class="kl-card-overlay-item">
                             <div class="kl-figure-block">
                                 <span class="kl-figure">109</span>
-                                <span class="kl-title">Following</span>
+                                <span class="kl-title">Siguiendo</span>
                             </div>
                         </div>
                     </div>
-                        <div class="section-title mb-0">
-                            <h2>All about Hike. We share our knowledge on blog</h2>
-                            <p>Our approach is very simple: we define your problem and give the best solution. </p>
-                        </div>
-                        <!-- /.section-title -->
                     </div>
                 </div>
             </div>
@@ -150,10 +153,68 @@
                   <button type="submit" class="btn btn-primary mb-2">SUBE TU POSTEO!</button>
                 </div>
               </div>
-
               </form>
             </div>
             </div>
+            </div>
+            <div class="col-md-12">
+
+          @foreach ($posteos as $row)
+            @if ($row->nickname == Auth::user()->name)
+          <div class="card w-100 mt-5" style="width: 18rem; box-shadow: 1px 1px 10px 1px rgba(138,138,138,1);">
+                <div class="card-body ">
+              @if($row->fotopost)
+                <img class="card-img-top" src="images/{{$row->fotopost}}" alt="Card image cap">
+              @endif
+                <h5 class="card-title">{{$row->titulopost}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{$row->nickname}}</h6>
+                <p class="card-text">{{$row->mensajeposteado}}</p>
+                <a href="#" class="card-link">Like</a>
+                <a href="#" class="card-link">Compartir</a>
+                <p class="card-text"><small class="text-muted">{{$row->created_at}}</small></p>
+
+              </div>
+          </div>
+            @endif
+          @endforeach
+            </div>
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <script src="js/jquery-2.1.1.min.js"></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/responsive-slider.js"></script>
+            <script src="js/wow.min.js"></script>
+            <script>
+              wow = new WOW({}).init();
+            </script>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle"><img src="images/{{ Auth::user()->avatar}}" alt="profile" class="rounded-circle" style="width:35px; height:35px;"></h5>
+                    <h5 class="ml-3">{{ Auth::user()->name }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Titulo</label>
+                      <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Mensaje:</label>
+                      <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                  </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Publicar</button>
+                  </div>
+                </div>
+              </div>
             </div>
   </body>
 </html>
