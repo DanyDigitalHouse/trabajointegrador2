@@ -41,6 +41,9 @@
               </a>
 
               <ul class="dropdown-menu">
+                <div class="dropdown-header">  <span class="navbar-text text-black m-auto pr-3 font-weight-bold">
+                    {{ Auth::user()->name }}
+                  </span></div>
                   <li>
                       <a href="{{ route('logout') }}"
                           onclick="event.preventDefault();
@@ -64,9 +67,7 @@
 
       </div>
 
-      <span class="navbar-text text-white m-auto pr-3 font-weight-bold">
-        {{ Auth::user()->name }}
-      </span>
+
       <form class="form-inline navbar-right">
         <button class="btn btn-outline-success mr-3" type="button" data-toggle="modal" data-target="#exampleModalCenter">New Post</button>
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -131,9 +132,17 @@
 
       <div class="form-group">
         <label for="exampleFormControlTextarea1">Comentarios</label>
-        <textarea class="form-control" name="mensajeposteado" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" name="mensajeposteado" maxlength="190" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <div id="the-count">
+          <span id="current">0</span>
+          <span id="maximum">/ 190</span>
+        </div>
       </div>
-      <label> <p>Fotos del post</p> <input id="regAvatar" type="file" name="fotopost" value=""></label>
+
+      <label  for="fileInput">
+        <i class="far fa-images icon"></i></label>
+        <input id="fileInput" name="fotopost" value="" type="file">
+
       <div class="row justify-content-center">
         <button href="/profile" type="submit" class="btn btn-primary mb-2">SUBE TU POSTEO!</button>
       </div>
@@ -147,7 +156,7 @@
       <div class="card w-100 mt-5" style="width: 18rem; box-shadow: 1px 1px 10px 1px rgba(138,138,138,1);">
             <div class="card-body ">
           @if($row->fotopost)
-            <img class="card-img-top" src="images/{{$row->fotopost}}" alt="Card image cap">
+            <img class="card-img-top" style="max-height: 500px" src="images/{{$row->fotopost}}" alt="Card image cap">
           @endif
             <h5 class="card-title">{{$row->titulopost}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{$row->nickname}}</h6>
@@ -195,6 +204,9 @@
   </footer>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/counter.js">
+
+  </script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
   <script src="js/responsive-slider.js"></script>

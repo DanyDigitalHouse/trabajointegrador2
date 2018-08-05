@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Vibur);
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 .beerstittle {
   color: #ccc;
@@ -9,4 +10,19 @@
 
 .modal-backdrop {
   z-index: -1;
+}
+
+#maximum{
+  color: black;
+}
+
+#fileInput{
+  display: none;
+}
+.icon{
+  font-size: 40px;
+  cursor: pointer;
+}
+.icon:hover{
+  color: #303952;
 }
