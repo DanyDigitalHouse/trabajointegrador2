@@ -182,7 +182,7 @@
         <p class="card-text">
           <ul class="list-group list-group-flush">
             @foreach($usuario as $us)
-            <a href="#" class="list-group-item list-group-item-action">{{$us->name}}</a>
+            <a href="/profile/{{$us->id}}" class="list-group-item list-group-item-action">{{$us->name}}</a>
             @endforeach
           </ul>
         </p>
