@@ -39,21 +39,6 @@ background-color: #21201E;
 }
 
 
-#beersnav , #msg , #notif , #homecolor , #momentscolor , #searchcolor, #npostcolor, #biocolor {
+#beersnav , #msg , #notif , #homecolor , #momentscolor , #searchcolor {
    color:#FFB200;
-}
-
-#contperf {
-  background-color: black;
-  border-color: #FFB200;
-}
-
-#bordercontprof {
-  border-color: white;
-}
-
-.btn btn-primary {
-
-background-color: #FFB200;
-
 }
