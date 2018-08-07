@@ -15,6 +15,8 @@
   <link href="../css/responsive-slider.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/animate.css">
   <link href="../css/stylehome.css" rel="stylesheet">
+  {{-- <link href="../css/stylehomecervecero.css" rel="stylesheet"> --}}
+  <link type="text/css" rel="stylesheet" media="all" href="../css/stylehome.css" id="theme_css" />
 
 </head>
 
@@ -65,10 +67,9 @@
         <button class="btn btn-outline-success mr-3" type="button" data-toggle="modal" data-target="#exampleModalCenter" id="npostcolor">New Post</button>
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit" id="searchcolor">Search</button>
-        <button class="btn btn-outline-success mr-3" type="button" name="changecolor" id="buttonID">
-            Modo Cervecero <img src="../images/pinta.png" height="20px">
-          <link type="text/css" rel="stylesheet" media="all" href="" id="theme_css" />
-        </button>
+
+        <button class="btn btn-outline-success mr-3" type="button" name="changecolor" id="buttonID"><img src="../images/pinta.png" style="height:20px" alt=""> </button>
+
       </form>
     </div>
     <div id="sfc4en1xmk5bygqf1lfkm68ktje8qwkxqzg"></div>
@@ -85,6 +86,9 @@
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/responsive-slider.js"></script>
   <script src="../js/wow.min.js"></script>
+  <script src="../js/changecolor.js">
+
+  </script>
 
   <script>
     wow = new WOW({}).init();

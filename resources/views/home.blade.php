@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="col-md-6">
-    <h1 class="text-center">¡Comenta a la comunidad!</h1>
+    <h1 class="text-center comentacom" >¡Comenta a la comunidad!</h1>
     <form class="form" action="/posteo" method="POST" enctype="multipart/form-data">
       {{csrf_field() }}
     <div class="col-md-12">
@@ -48,7 +48,7 @@
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" id="countandcoment">
         <label for="exampleFormControlTextarea1">Comentarios</label>
         <textarea class="form-control" name="mensajeposteado" maxlength="190" id="exampleFormControlTextarea1" rows="3"></textarea>
         <div id="the-count">
@@ -58,7 +58,7 @@
       </div>
 
       <label  for="fileInput">
-        <i class="far fa-images icon"></i></label>
+        <i class="far fa-images icon postimage"></i></label>
         <input id="fileInput" name="fotopost" value="" type="file">
 
       <div class="row justify-content-center">
@@ -94,8 +94,8 @@
   </div>
   <div class="col-md-3">
     <div class="card w-100" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Hace nuevos amigos</h5>
+      <div class="card-body" id="contderecha">
+        <h5 class="card-title" id="newfriends">Hace nuevos amigos</h5>
         <h6 class="card-subtitle mb-2 text-muted">Users registrados en Beers</h6>
         <p class="card-text">
           <ul class="list-group list-group-flush">
@@ -114,7 +114,7 @@
     <div class="sub-footer mt-5">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-12" style="background-color: #303952; height:5vh;">
+          <div class="col-md-12" id="footercopyright">
             <p class="text-center text-light">copyright Beers</p>
         </div>
       </div>
