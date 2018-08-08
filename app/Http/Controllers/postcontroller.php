@@ -30,6 +30,7 @@ class postcontroller extends Controller
      //  $ruta_imagen='';
       // dd($request->all());
         Posteo::create([
+            'user_id' => auth()->id(),
             'nickname' => $request->input('nickname'),
             'local' => $request->input('local'),
             'titulopost' => $request->input('titulopost'),

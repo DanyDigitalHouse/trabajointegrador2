@@ -15,9 +15,10 @@ class peoplecontroller extends Controller
       $usuarios = User::where('name', 'like', '%'.$search.'%')
         ->orderBy('name')
         ->paginate(5);
-
-      $usuarios = User::Search()->orderBy('name')->paginate(5);
-
+      $usuarios->appends(['search' => $search]);
+      /*
+        $usuarios = User::Search()->orderBy('name')->paginate(5);
+      */
       return view('search', compact('usuarios'));
     }
 

@@ -9,4 +9,7 @@ class Posteo extends Model
   protected $table = 'posteos';
   protected $guarded = array();
 
+  public function user(){
+    return $this->belongsTo('App\Models\User');
+  }
 }

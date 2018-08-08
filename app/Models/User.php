@@ -12,4 +12,7 @@ class User extends Model
     {
       return empty(request()->search) ? $q : $q->where('name', 'like', '%'.request()->search.'%');
     }
+  public function posts(){
+      return $this->hasMany('App\Models\Posteo');
+  }
 }

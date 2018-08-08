@@ -13,7 +13,7 @@
       <img class="card-img-top" src="../images/default-avatar.png" alt="Card image cap" style="width: 100%; height: 15vw;  object-fit: cover; " >
       @endif
       <div class="card-body">
-        <h5 class="card-title">{{$row->name}}</h5>
+        <a href="/profile/{{$row->id}}"><h5 class="card-title">{{$row->name}}</h5></a>  
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>
       <a href="#" class="btn btn-primary">Seguir</a>
@@ -25,8 +25,9 @@
   </div>
 </div>
 @else
-<div class="container-fluid" style="margin-top: 50vh;">
-<h1 class="text-center" style="color: #000;">No hay ningun usuario con ese nombre.</h1>
+<div class="container-fluid" style="margin-top: 20vh;">
+  <img class="mx-auto d-block" src="./images/no-results.png" alt="">
+<h1 class="text-center" style="color: #c7c2c2;">No hay ningun usuario con ese nombre.</h1>
 </div>
 @endif
 

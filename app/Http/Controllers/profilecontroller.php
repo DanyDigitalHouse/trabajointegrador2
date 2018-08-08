@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class profilecontroller extends Controller
 {
   public function prof(Request $request) {
-
+    //$posts = User::find($user_id)->posts;
     $posts = posteo::all()->sortByDesc('created_at');
 
     $view = view('profile');
@@ -19,9 +19,12 @@ class profilecontroller extends Controller
   }
   public function verperfil($id){
     $userz = user::find($id);
+    $post = User::find($id)->posts;
 
     $view = view('perfil');
     $view->with('users',$userz);
+    $view->with('posteos',$post);
+
 
     return $view;
   }

@@ -1,7 +1,7 @@
 @extends('layouts.header')
 
 @section('contenido')
-
+{{dd($posteos)}}
 <div class="container-fluid" style="background-image: url('http://www.arquimaster.com.ar/web/wp-content/uploads/2016/01/cerveceria_hidalgo3.jpg');
   height:50vh;
   margin-top: 6rem;
@@ -62,4 +62,7 @@
       </div>
     </div>
   </div>
+</div>
+<div class="container-fluid">
+
 </div>
