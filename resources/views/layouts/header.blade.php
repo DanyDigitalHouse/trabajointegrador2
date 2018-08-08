@@ -55,22 +55,22 @@
 
           <a class="nav-item nav-link" href="#" id="msg"><i class="fas fa-envelope"></i></a>
           <a class="nav-item nav-link" href="#" id="notif"><i class="fas fa-bell"></i></a>
-          <a class="nav-item nav-link active" href="#" id="homecolor">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#" id="momentscolor">Moments</a>
+          <a class="nav-item nav-link font-weight-bold" href="/home" id="homecolor">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link font-weight-bold" href="/peoples" id="momentscolor">Peoples</a>
 
         </div>
 
       </div>
 
+      <button class="btn btn-outline-success mr-3 font-weight-bold" type="button" data-toggle="modal" data-target="#exampleModalCenter" id="npostcolor">New Post</button>
 
-      <form class="form-inline navbar-right">
-        <button class="btn btn-outline-success mr-3" type="button" data-toggle="modal" data-target="#exampleModalCenter" id="npostcolor">New Post</button>
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit" id="searchcolor">Search</button>
-
+      <form class="form-inline navbar-right" action="/search" method="get">
+        <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search ">
+        <button class="btn btn-outline-success my-2 my-sm-0 mr-3 font-weight-bold" type="submit" id="searchcolor">Search</button>
+      </form>
         <button class="btn btn-outline-success mr-3" type="button" name="changecolor" id="buttonID"><img src="../images/pinta.png" style="height:20px" alt=""> </button>
 
-      </form>
+
     </div>
     <div id="sfc4en1xmk5bygqf1lfkm68ktje8qwkxqzg"></div>
     {{-- <a title="contador de visitas com"><img src="https://counter4.whocame.ovh/private/contadorvisitasgratis.php?c=u46l7c5c3hhmb5m8tldmmxph81ryxbn8" border="0" title="contador de visitas com" alt="contador de visitas com"></a> --}}

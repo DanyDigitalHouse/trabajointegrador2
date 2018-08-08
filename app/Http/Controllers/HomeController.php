@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
       $posts = posteo::all()->sortByDesc('created_at');
-      $usuarios = user::all();
+      $usuarios = user::inRandomOrder()->take(5)->get();
       //dd($peliculas);
       $view = view('home');
       $view->with('posteos',$posts)

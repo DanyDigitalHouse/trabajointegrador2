@@ -84,5 +84,6 @@ Route::post('/posteo','postcontroller@savepost');
 Route::get('/profile/{id}', 'profilecontroller@verperfil');
 Route::get('/profile', 'profilecontroller@prof')->middleware('auth');
 
-
+Route::get('/peoples', 'peoplecontroller@peoples');
+Route::get('/search', 'peopleController@busca');
 //Route::get('/perfil', 'homecontroller@perfil')->middleware('auth')

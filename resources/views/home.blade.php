@@ -4,7 +4,7 @@
 <div class="container-fluid" style="margin-top:15vh;">
   <div class="col-md-3">
     <div class="card w-100" style="width: 18rem;" id="bordercontprof">
-      <img class="card-img-top" src="images/{{ Auth::user()->avatar}}" alt="Card image cap">
+      <img class="card-img-top" src="images/{{ Auth::user()->avatar}}" alt="Card image cap" style="width: 100%; height: 35vh;object-fit: cover;">
       <div class="card-body" id="contperf">
         <h5 class="card-title" id="biocolor">{{ Auth::user()->name }}</h5>
           <p class="card-text" id="biocolor" >Bio User</p>
@@ -74,7 +74,7 @@
       <div class="card w-100 mt-5" style="width: 18rem; box-shadow: 1px 1px 10px 1px rgba(138,138,138,1);">
             <div class="card-body ">
           @if($row->fotopost)
-            <img class="card-img-top" style="max-height: 500px" src="images/{{$row->fotopost}}" alt="Card image cap">
+            <img class="card-img-top" style="max-height: 500px" src="images/{{$row->fotopost}}" alt="Card image cap" style="height: 15vh;object-fit: cover;">
           @endif
             <h5 class="card-title">{{$row->titulopost}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{$row->nickname}}</h6>
@@ -96,15 +96,19 @@
     <div class="card w-100" style="width: 18rem;">
       <div class="card-body" id="contderecha">
         <h5 class="card-title" id="newfriends">Hace nuevos amigos</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Users registrados en Beers</h6>
+        <h6 class="card-subtitle mb-2 text-muted">5 Personas Random</h6>
         <p class="card-text">
           <ul class="list-group list-group-flush">
             @foreach($usuario as $us)
-            <a href="/profile/{{$us->id}}" class="list-group-item list-group-item-action">{{$us->name}}</a>
+              @if($us->avatar)
+                <a href="/profile/{{$us->id}}" class="list-group-item list-group-item-action"><img src="../images/{{$us->avatar}}" alt="..." class="rounded-circle" style="width: 30px; height:30px;"> <span>{{$us->name}}</span></a>
+              @else
+              <a href="/profile/{{$us->id}}" class="list-group-item list-group-item-action"><img src="../images/default-avatar.png" alt="..." class="rounded-circle" style="width: 30px; height:30px;"> <span>{{$us->name}}</span></a>
+              @endif
             @endforeach
           </ul>
         </p>
-        <a href="#" class="card-link">Buscar Amigo</a>
+        <a href="/peoples" class="card-link">Buscar Amigo</a>
 
       </div>
     </div>
