@@ -17,6 +17,9 @@
   <link href="../css/stylehome.css" rel="stylesheet">
   {{-- <link href="../css/stylehomecervecero.css" rel="stylesheet"> --}}
   <link type="text/css" rel="stylesheet" media="all" href="../css/stylehome.css" id="theme_css" />
+  <!-- <link type="text/css" rel="stylesheet" media="all" href="../css/stylehomecervecero.css" id="theme_css2" /> *falta pulirlo* -->
+
+
 
 </head>
 
@@ -69,6 +72,7 @@
         <button class="btn btn-outline-success my-2 my-sm-0 mr-3 font-weight-bold" type="submit" id="searchcolor">Search</button>
       </form>
         <button class="btn btn-outline-success mr-3" type="button" name="changecolor" id="buttonID"><img src="../images/pinta.png" style="height:20px" alt=""> </button>
+        <!-- <button class="btn btn-outline-success mr-3" type="button" name="changecolor2" id="buttonID2"><img src="../images/cantimplora.png" style="height:20px" alt=""> </button> *falta pulirlo* -->
 
 
     </div>
@@ -86,9 +90,10 @@
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/responsive-slider.js"></script>
   <script src="../js/wow.min.js"></script>
-  <script src="../js/changecolor.js">
+  <script src="../js/changecolor.js"></script>
+  <!-- <script src="../js/changecolor2.js"></script> *falta pulirlo* -->
 
-  </script>
+
 
   <script>
     wow = new WOW({}).init();

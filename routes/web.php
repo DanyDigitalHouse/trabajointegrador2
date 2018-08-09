@@ -13,27 +13,27 @@
 */
 
 
-
-Route::get('/', function () {
-    echo 'Cualquier cosa';
-    echo '<br><br>';
-    echo 'Hola estoy escribiendo dentro de ejemplo de laravel';
-});
-
-
-Route::get('/miPrimerRuta', function () {
-    echo 'Creé mi primer ruta en Laravel';
-});
-
-Route::get('/resultado/{numero}', function ($input) {
-
-    if ($input%2==0){
-        return "El numero ingresado  $input  es par";
-    }else{
-        return "El numero ingresado  $input  es impar";
-    }
-
-});
+//
+// Route::get('/', function () {
+//     echo 'Cualquier cosa';
+//     echo '<br><br>';
+//     echo 'Hola estoy escribiendo dentro de ejemplo de laravel';
+// });
+//
+//
+// Route::get('/miPrimerRuta', function () {
+//     echo 'Creé mi primer ruta en Laravel';
+// });
+//
+// Route::get('/resultado/{numero}', function ($input) {
+//
+//     if ($input%2==0){
+//         return "El numero ingresado  $input  es par";
+//     }else{
+//         return "El numero ingresado  $input  es impar";
+//     }
+//
+// });
 
 /*
 Route::get('holis/{numero}/{numeropcional?}', function($input1, $input2 = 1){
