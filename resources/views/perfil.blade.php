@@ -1,7 +1,6 @@
 @extends('layouts.header')
 
 @section('contenido')
-{{dd($posteos)}}
 <div class="container-fluid" style="background-image: url('http://www.arquimaster.com.ar/web/wp-content/uploads/2016/01/cerveceria_hidalgo3.jpg');
   height:50vh;
   margin-top: 6rem;
@@ -63,6 +62,25 @@
     </div>
   </div>
 </div>
-<div class="container-fluid">
+<div class="container">
+
+    @foreach ($posteos as $row)
+    <div class="card w-50 mt-5 mx-auto" style="width: 18rem; box-shadow: 1px 1px 10px 1px rgba(138,138,138,1);">
+          <div class="card-body ">
+        @if($row->fotopost)
+          <img class="card-img-top" src="../images/{{$row->fotopost}}" alt="Card image cap" style="height:50vh; object-fit: cover;">
+        @endif
+          <h5 class="card-title">{{$row->titulopost}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{$row->nickname}}</h6>
+          <p class="card-text">{{$row->mensajeposteado}}</p>
+          <a href="#" class="card-link">Like</a>
+          <a href="#" class="card-link">Compartir</a>
+          <p class="card-text"><small class="text-muted">{{$row->created_at}}</small></p>
+
+        </div>
+    </div>
+
+    @endforeach
+
 
 </div>

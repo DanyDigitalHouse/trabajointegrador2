@@ -19,11 +19,15 @@ class profilecontroller extends Controller
   }
   public function verperfil($id){
     $userz = user::find($id);
-    $post = User::find($id)->posts;
+    //$post = User::find($id)->posts;
+    //$post = User::with('posts')->get();
+    $posts = User::find($id)->posts;
+
+
 
     $view = view('perfil');
+    $view->with('posteos',$posts);
     $view->with('users',$userz);
-    $view->with('posteos',$post);
 
 
     return $view;
