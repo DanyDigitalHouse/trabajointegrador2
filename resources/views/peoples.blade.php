@@ -12,7 +12,7 @@
       <img class="card-img-top" src="../images/default-avatar.png" alt="Card image cap" style="width: 100%; height: 15vw;  object-fit: cover; " >
       @endif
       <div class="card-body">
-        <h5 class="card-title">{{$usuario->name}}</h5>
+        <a href="/profile/{{$usuario->id}}"><h5 class="card-title">{{$usuario->name}}</h5></a> 
         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla metus quis est maximus venenatis. In lobortis erat metus.</p>
       </div>
       <a href="#" class="btn btn-primary">Seguir</a>

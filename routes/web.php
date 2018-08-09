@@ -59,7 +59,8 @@ if ($input2 == 1)
 
 Route::get('/homeIndex', 'homecontroller@homeindex');
 
-Route::get('/homepage', 'homepagecontroller@homepage');
+//Route::get('/homepage', 'homepagecontroller@homepage');
+Route::get('/', 'homepagecontroller@homepage');
 
 Route::get('/primeratabla', 'dbusercontroller@listar');
 
@@ -85,5 +86,5 @@ Route::get('/profile/{id}', 'profilecontroller@verperfil');
 Route::get('/profile', 'profilecontroller@prof')->middleware('auth');
 
 Route::get('/peoples', 'peoplecontroller@peoples');
-Route::get('/search', 'peopleController@busca');
+Route::get('/search', 'peoplecontroller@busca');
 //Route::get('/perfil', 'homecontroller@perfil')->middleware('auth')
