@@ -87,4 +87,5 @@ Route::get('/profile', 'profilecontroller@prof')->middleware('auth');
 
 Route::get('/peoples', 'peoplecontroller@peoples');
 Route::get('/search', 'peoplecontroller@busca');
+Route::get('/magic','magiccontroller@magic');
 //Route::get('/perfil', 'homecontroller@perfil')->middleware('auth')
