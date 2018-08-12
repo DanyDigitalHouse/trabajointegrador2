@@ -8,6 +8,7 @@ const downloadBtn = document.getElementById("download-btn");
 const uploadFile = document.getElementById("upload-file");
 const revertBtn = document.getElementById("revert-btn");
 
+
 // Filter & Effect Handlers
 document.addEventListener("click", e => {
   if (e.target.classList.contains("filter-btn")) {
@@ -78,6 +79,7 @@ document.addEventListener("click", e => {
     }
   }
 });
+
 
 // Revert Filters
 revertBtn.addEventListener("click", e => {
